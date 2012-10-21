@@ -1,0 +1,18 @@
+%div{class: "row" }
+  %div{ class: "span1"}
+    %div{ class: "date"}
+      %div{ class: "month-year"}
+        = post.created_at.strftime("%B")
+      %div{ class: "date-num"}
+        = created_day(post)
+      %div{ class: "month-year"}
+        = post.created_at.strftime("%Y")
+    
+  %div{ class: ["span11", "title-section"] }
+    %div{ class: "title"}
+      = post.subject
+    %div{ class: "author"}
+      = post.user.name
+%div{class: "row"}
+  %div{class: ["span12", "post-content"]}
+    = post.content.html_safe

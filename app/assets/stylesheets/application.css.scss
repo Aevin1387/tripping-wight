@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+.content {
+  background-color: #eee;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.date {
+  @extend .img-rounded;
+  width: 45px; 
+  height: 45px;
+  font-family: Helvetica, sans-serif; 
+  text-align: center; 
+  /* background: #fcfcfc;  */
+   color: #fff;
+  background: #7d00c4;
+  background: linear-gradient(top, #7d00f1 0%, #7d00c4 25%, #7d00c4 75%, #7d00f1 100%);
+  background: -moz-linear-gradient(top, #7d00f1 0%, #7d00c4 25%, #7d00c4 75%, #7d00f1 100%);
+  background: -webkit-linear-gradient(top, #7d00f1 0%, #7d00c4 25%, #7d00c4 75%, #7d00f1 100%);
+}
+
+.date .month-year{
+  font-size: 9px;
+  line-height: 12px;
+}
+
+.date .date-num{
+  font-weight: bold; 
+  font-size: 20px;
+}
