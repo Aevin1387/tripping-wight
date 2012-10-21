@@ -28,6 +28,7 @@ end
 group :production do
   gem 'therubyracer-heroku'
   gem 'pg'
+  gem 'haml', '~> 3.1.7'
 end
 
 group :development, :test do
