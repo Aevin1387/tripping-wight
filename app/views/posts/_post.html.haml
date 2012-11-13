@@ -16,3 +16,8 @@
 %div{class: "row"}
   %div{class: ["span12", "post-content"]}
     = post.content.html_safe
+%div{class: "row"}
+  %div{class: "span11"}
+    &nbsp;
+  %div{class: "span1"}
+    = link_to "Edit", edit_post_path(post) 

@@ -12,7 +12,7 @@ describe Post do
   end
 
   it "is invalid without content" do
-    post.content = nil
+    post.raw_content = nil
     post.should_not be_valid
   end
 

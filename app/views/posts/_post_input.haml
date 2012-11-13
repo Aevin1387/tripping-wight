@@ -1,4 +1,4 @@
 = simple_form_for post do |f|
   = f.input :subject, label: "Title"
-  = f.text_area :content, label: "Content"
+  = f.text_area :raw_content, label: "Content"
   = f.submit 'Save'

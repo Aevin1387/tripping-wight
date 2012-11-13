@@ -1,2 +1,2 @@
-- posts.each do |post|
+- posts.order("created_at DESC").each do |post|
   = render 'post', post: post

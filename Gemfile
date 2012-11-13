@@ -35,11 +35,13 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11.4'
   gem  'factory_girl_rails', '~> 4.0'
+  gem 'pry'
 end
 
 gem 'bootstrap-sass', '~> 2.1.0.1'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'redcarpet'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
