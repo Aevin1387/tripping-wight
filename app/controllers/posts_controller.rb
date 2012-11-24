@@ -58,8 +58,22 @@ class PostsController < ApplicationController
 
   private
   def mark_text(text)
-    options = {hard_wrap: true, autolink: true, no_intraemphasis:true, fenced_code: true, gh_blockcode: true}
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    renderer = HTMLwithAlbino.new(hard_wrap: true)
+    options = { 
+      autolink: true, 
+      no_intra_emphasis:true, 
+      fenced_code_blocks: true, 
+      lax_html_blocks: true,
+      strikethrough: true,
+      superscript: true
+    }
+    markdown = Redcarpet::Markdown.new(renderer, options)
     markdown.render(text)
+  end
+end
+
+class HTMLwithAlbino < Redcarpet::Render::HTML      
+  def block_code(code, language)
+    Pygments.highlight(code, lexer: language)
   end
 end

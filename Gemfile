@@ -42,6 +42,8 @@ gem 'bootstrap-sass', '~> 2.1.0.1'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'redcarpet'
+gem 'pygments.rb'
+gem 'nokogiri'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

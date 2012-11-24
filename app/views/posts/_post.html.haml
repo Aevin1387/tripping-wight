@@ -14,10 +14,11 @@
     %div{ class: "author"}
       = post.user.name
 %div{class: "row"}
-  %div{class: ["span12", "post-content"]}
+  %div{ class: "span11"}
     = post.content.html_safe
-%div{class: "row"}
-  %div{class: "span11"}
-    &nbsp;
-  %div{class: "span1"}
-    = link_to "Edit", edit_post_path(post) 
+- if user_signed_in?
+  %div{class: "row"}
+    %div{class: "span10"}
+      &nbsp;
+    %div{class: "span1", style: "text-align: right"}
+      = link_to "Edit", edit_post_path(post) 
