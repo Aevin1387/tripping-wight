@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    post :preview, on: :collection
+  end
 
   devise_for :users
   root to: "posts#index"

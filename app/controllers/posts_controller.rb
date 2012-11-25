@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
   expose(:posts)
   expose(:post)
 
@@ -54,6 +54,11 @@ class PostsController < ApplicationController
     redirect_to root_url if post.nil?
     post.delete
     redirect_to root_url
+  end
+
+  def preview
+    post = params[:content]
+    render json: mark_text(post).to_json
   end
 
   private

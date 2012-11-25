@@ -1,1 +1,5 @@
-= render 'post_input', post: post
+%div{class: "row"}
+  %div{class: "span6"}
+    = render 'post_input', post: post
+  %div{class: "span6"}
+    %div{id: "post_preview"}
