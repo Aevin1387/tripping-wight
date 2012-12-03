@@ -31,6 +31,8 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.0.1)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     builder (3.0.4)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -152,6 +154,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.3)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -159,6 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.1.0.1)
+  bootstrap-will_paginate
   coffee-rails (~> 3.2.1)
   decent_exposure
   devise
@@ -178,3 +182,4 @@ DEPENDENCIES
   sqlite3
   therubyracer-heroku
   uglifier (>= 1.0.3)
+  will_paginate

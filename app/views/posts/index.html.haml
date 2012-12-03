@@ -1,2 +1,5 @@
-- posts.order("created_at DESC").each do |post|
+
+- @paginated_posts.each do |post|
   = render 'post', post: post
+
+= will_paginate @paginated_posts

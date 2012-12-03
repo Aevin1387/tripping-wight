@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_admin!, except: [:index, :show]
   expose(:posts)
   expose(:post)
 
   def index
-    posts = Post.all
+    @paginated_posts = Post.paginate(page: params[:page], per_page: 5).order("created_at DESC")
   end
 
   def create
@@ -39,9 +40,12 @@ class PostsController < ApplicationController
     post = Post.find_by_id(params[:id])
     post.assign_attributes(params[:post])
 
-    unless post.valid?
+    if !post.valid?
       flash.now[:error] = params.to_s + post.inspect
       render 'edit'
+    elsif !post.admin?
+      flash.now[:error] = "Sorry, you must be an admin to update a post."
+      redirect_to root_path
     else
       post.content = mark_text(post.raw_content)
       post.save
@@ -75,6 +79,14 @@ class PostsController < ApplicationController
     markdown = Redcarpet::Markdown.new(renderer, options)
     markdown.render(text)
   end
+
+  def authenticate_admin!
+  if current_user.admin?
+    return true
+  end
+  redirect_to root_url, :notice => "You must be an admin to access this resource."
+  return false
+end
 end
 
 class HTMLwithAlbino < Redcarpet::Render::HTML      
